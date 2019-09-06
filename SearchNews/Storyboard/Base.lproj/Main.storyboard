@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="SearchNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here what you want to find" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UAd-Bc-Y1t">
+                                <rect key="frame" x="50" y="293" width="314" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4i-EA-k7J">
+                                <rect key="frame" x="107" y="423" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="AbL-HR-7NR"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZfI-3w-5BT"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="btnSearchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVe-ee-AHP"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="45I-tH-4aJ">
+                                <rect key="frame" x="188.5" y="376" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UAd-Bc-Y1t" secondAttribute="trailing" constant="50" id="4DZ-rM-GUz"/>
+                            <constraint firstItem="D4i-EA-k7J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AWu-AH-qgb"/>
+                            <constraint firstItem="D4i-EA-k7J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EJ3-3g-LuW"/>
+                            <constraint firstItem="UAd-Bc-Y1t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="blt-fJ-jbR"/>
+                            <constraint firstItem="45I-tH-4aJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kTY-c1-rgv"/>
+                            <constraint firstItem="D4i-EA-k7J" firstAttribute="top" secondItem="45I-tH-4aJ" secondAttribute="bottom" constant="10" id="ns0-ez-LTZ"/>
+                            <constraint firstItem="D4i-EA-k7J" firstAttribute="top" secondItem="UAd-Bc-Y1t" secondAttribute="bottom" constant="100" id="wTA-jN-tcW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="45I-tH-4aJ" id="hz8-xi-TkH"/>
+                        <outlet property="btnSearch" destination="D4i-EA-k7J" id="XF0-Ub-vw8"/>
+                        <outlet property="tfSearch" destination="UAd-Bc-Y1t" id="JUC-3i-xsi"/>
+                        <segue destination="5P4-IV-23s" kind="presentation" identifier="segueShowWebView" modalTransitionStyle="crossDissolve" id="bsz-5r-x0A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-307" y="138"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="KS3-V6-xdk">
+            <objects>
+                <viewController id="ZcE-ZA-2li" customClass="WebViewController" customModule="SearchNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hNa-F3-9h1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB7-K8-7gL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zTs-rh-k8k">
+                                <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8gI-q1-uHM" firstAttribute="trailing" secondItem="DB7-K8-7gL" secondAttribute="trailing" id="2bR-er-gMj"/>
+                            <constraint firstItem="DB7-K8-7gL" firstAttribute="top" secondItem="8gI-q1-uHM" secondAttribute="top" id="EfO-fW-ikH"/>
+                            <constraint firstItem="zTs-rh-k8k" firstAttribute="centerX" secondItem="hNa-F3-9h1" secondAttribute="centerX" id="LWM-IL-smi"/>
+                            <constraint firstItem="zTs-rh-k8k" firstAttribute="centerY" secondItem="hNa-F3-9h1" secondAttribute="centerY" id="SSP-GU-04l"/>
+                            <constraint firstItem="8gI-q1-uHM" firstAttribute="bottom" secondItem="DB7-K8-7gL" secondAttribute="bottom" id="g7L-Ca-9MQ"/>
+                            <constraint firstItem="DB7-K8-7gL" firstAttribute="leading" secondItem="8gI-q1-uHM" secondAttribute="leading" id="teQ-rp-oD3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8gI-q1-uHM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S93-JI-yOx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="WEW-o5-XSi">
+                            <connections>
+                                <action selector="dismissPressed:" destination="ZcE-ZA-2li" id="oZs-Dc-D5x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="zTs-rh-k8k" id="lbO-Nq-qKu"/>
+                        <outlet property="webview" destination="DB7-K8-7gL" id="ptw-Ul-if7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sg4-rH-WiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649.2753623188407" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oEm-0D-nz6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5P4-IV-23s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="kEq-la-fxF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZcE-ZA-2li" kind="relationship" relationship="rootViewController" id="cZZ-gW-BRT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QO1-T0-VAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
